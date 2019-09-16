@@ -44,6 +44,7 @@ class Explore extends React.Component {
     if (this.state.color === "red") {
       console.log("hello");
       return 1;
+      // kem cho
     }
     else {
       console.log("hello world");
