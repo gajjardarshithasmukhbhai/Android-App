@@ -1,5 +1,7 @@
 import React from 'react';
 import {
+  CameraRoll,
+  Alert,
   StyleSheet, Image, ImageBackground,
   Dimensions, Text, Animated,
   TouchableOpacity, View, TextInput, ToastAndroid, Vibration, ScrollView
@@ -14,23 +16,30 @@ import Icon from 'react-native-vector-icons/Ionicons';
 import IconAnt from 'react-native-vector-icons/AntDesign';
 import IconFont from 'react-native-vector-icons/FontAwesome';
 import { TouchableWithoutFeedback } from 'react-native-gesture-handler';
+import { RNCamera, FaceDetector } from 'react-native-camera';
 let width = Dimensions.get('window').width;
 let height = Dimensions.get('window').height;
 class Explore extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      color: "grey"
+      color: "grey",
+      photos: []
     }
     this.color = this.color.bind(this);
     this.changeColor = this.changeColor.bind(this);
+    this.barcodeRecognized = this.barcodeRecognized.bind(this);
   }
 
   color = () => {
+
     this.setState({
       color: "red"
     })
   }
+  barcodeRecognized = ({ barcodes }) => {
+    barcodes.forEach(barcode => console.warn(barcode.data))
+  };
   changeColor = () => {
     if (this.state.color === "red") {
       console.log("hello");
@@ -48,23 +57,20 @@ class Explore extends React.Component {
         <View >
           <View >
             {console.log("gaspar")}
-            <ImageBackground source={require('./assets/images/mountains-3699372_1920.jpg')} style={style.Image}>
-              <View>
-                <Icon name="ios-menu" size={30} color="white" style={style.menu} />
-              </View>
+            <RNCamera
+              ref={ref => {
+                this.camera = ref;
+              }}
+              style={{
+                flex: 1,
+                width: '100%',
+                height: 120
+              }}
+              onGoogleVisionBarcodesDetected={this.barcodeRecognized}
+            >
+            </RNCamera>
 
-              <View style={style.headerView}>
-                <Text style={style.headerText1}>Your</Text>
-                <Text style={style.headerText2}>Things</Text>
-              </View>
-              <View style={style.weather}>
-                <Text style={style.weatherText}>25</Text>
-                <IconFont name="circle-o" style={{ color: "white", marginTop: -60, marginLeft: 55 }} />
-                <Text style={{ color: "white", marginTop: 45, marginLeft: 5 }}>Cloudy</Text>
 
-              </View>
-
-            </ImageBackground>
           </View>
           <View>
             <ScrollView horizontal={true} showsHorizontalScrollIndicator={false}>
