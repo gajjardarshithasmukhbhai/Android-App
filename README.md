@@ -13,3 +13,14 @@
 </a>
 </p>
 
+## Front End
+<img src="https://img.shields.io/badge/ReactNative-frontend-yellowgreen.svg" align="center">
+
+## Back End
+<img src="https://img.shields.io/badge/NodeJs-backend-blue.svg" align="center">
+<img src=" https://img.shields.io/badge/expressJS-backend-yellow.svg" align="center">
+<img src="https://img.shields.io/badge/bootstrap-frontend-yellowgreen.svg" align="center">
+<img src="https://img.shields.io/badge/RESTAPI-backend-yellowgreen.svg" align="center">
+<img src="https://img.shields.io/badge/MongoDB-Database-yellowgreen.svg" align="center">
+
+
