@@ -1,0 +1,164 @@
+->In React Navigation the createStackNavigator is basically use for the return the parameter which mention in createStackNavigator
+and return that component through createStackNavigator
+->export default class App extends React.Component {
+  render() {
+        return <AppContainer />;
+        }
+    } that method through you got more control it
+->so directly send that createAppcontainer to specific const and then
+  after that variable constant add as class
+->initialRouteName is basically is used for the display first root Display
+->createStackNavigator is basically use for the route one display screen to another display screen
+
+# Route Tag information
+
+->this.props.navigation.navigate('RouteName') pushes a new route to the stack navigator if it's not already in the stack, otherwise it jumps to that screen.
+->We can call this.props.navigation.push('RouteName') as many times as we like and it will continue pushing routes.
+->The header bar will automatically show a back button, but you can programmatically go back by calling this.props.navigation.goBack(). On Android, the hardware back button just works as expected.
+->You can go back to an existing screen in the stack with this.props.navigation.navigate('RouteName'), and you can go back to the first screen in the stack with this.props.navigation.popToTop().
+
+# Take route parameter in React Navigation
+
+->In react native you take pass the data through (this.props.navigation.push("route name",{
+    object_name_which_you_give:data/state/anything
+}));
+->take that data through JSON.stringify(navigation.getParam('object_name_which_you_give'))
+
+# Configuring the header bar and it's style
+
+->static navigationOptions = ({ navigation }) => {
+    return {
+      title: "Hello Gajjar Darshit",
+    }
+  };
+  if we want to give style or title so that time we put the whole return 
+  component mention in particular class which you want to give style on that
+
+# HeaderStyles
+
+->headerstyle you set common way and specific way what means about it ?
+->common way : it means that we set styling for all activity
+ex.const Home = createStackNavigator(
+  {
+    Feed: ExampleScreen,
+    Profile: ExampleScreen,
+  },
+  {
+    defaultNavigationOptions: {
+      headerTintColor: '#fff',
+      headerStyle: {
+        backgroundColor: '#000',
+      },
+    },
+    navigationOptions: {
+      tabBarLabel: 'Home!',
+    },
+  }
+);
+specific way to give header styling
+ex. 
+class HomeScreen extends React.Component {
+  static navigationOptions = {
+    title: 'Home',
+    headerStyle: {
+      backgroundColor: '#f4511e',
+    },
+    headerTintColor: '#fff',
+    headerTitleStyle: {
+      fontWeight: 'bold',
+    },
+  };
+
+  /* render function, etc */
+}
+Overriding shared navigationOptions
+ex.
+class DetailsScreen extends React.Component {
+  static navigationOptions = ({ navigation, navigationOptions }) => {
+    const { params } = navigation.state;
+
+    return {
+      title: params ? params.otherParam : 'A Nested Details Screen',
+      /* These values are used instead of the shared configuration! */
+      headerStyle: {
+        backgroundColor: navigationOptions.headerTintColor,<----that color is changed
+      },
+      headerTintColor: navigationOptions.headerStyle.backgroundColor,
+    };
+  };
+
+  /* render function, etc */
+}
+
+# Dynamic Type component make
+
+->In reactNative the headerTitle and headerRight to component base make that
+ex.
+________________________________________________
+static navigationOptions = ({ navigation }) => {
+    return {
+      headerTitle: () => <LogoTitle />,
+      headerStyle: {
+        backgroundColor: '#f4511e',
+      },
+      headerRight: () => <Hello />,
+      headerTintColor: '#fff',
+      headerTitleStyle: {
+        fontWeight: 'bold',
+      },
+    }
+  };
+/*Functional based component*/
+/*start*/
+const LogoTitle = () => {
+  return (
+    <View>
+      <Text style={{ color: "#ffff", fontSize: 20, margin: 20 }}>Gajjar Darshit</Text>
+    </View>
+  )
+}
+/*End*/
+class Hello extends React.Component {
+  render() {
+    return (
+      <View>
+        <Icon name="apple" style={{ fontSize: 30, marginRight: 20, color: "#ffff" }} />
+      </View>
+    )
+  }
+}
+_________________________________________________
+
+# React navigation normal and materialistic tab navigator
+
+->In React native we give to type of tab navigator we make one is materialistic
+and another one is normal 
+@materialistic
+in react native we make materialistic tab through this procedure
+
+step:1
+    first you add the two library one is react native paper and other one 
+    react Navigation material 
+step:2
+    so then after you import the library like
+    ->import { createMaterialBottomTabNavigator } from 'react-navigation-material-bottom-tabs';
+step:3 
+    so then after you create the materialbottom navigator like
+    ->const fer=createMaterialBottomTabNavigator(
+      {
+        Album: { screen: Album },
+        Library: { screen: Library },
+        History: { screen: History },
+        Cart: { screen: Cart },
+      },
+      {
+        initialRouteName: 'Album',
+        activeColor: '#f0edf6',
+        inactiveColor: '#3e2465',
+        barStyle: { backgroundColor: '#694fad' },
+      }
+    );
+  ->so then after export that container that
+step:4
+    so then after export that container so that so that show case
+    ->export default createAppContainer(App);
