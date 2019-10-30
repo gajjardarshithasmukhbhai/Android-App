@@ -114,6 +114,39 @@ const teabNavigator = createStackNavigator({
     })
   },
 })
+class Mayhello extends React.Component {
+  render() {
+    return (
+      <View><Text>hhahha</Text></View>
+    )
+  }
+}
+const treeNavigator = createStackNavigator({
+  Mayhello: {
+    screen: Mayhello,
+    navigationOptions: ({ navigation }) => ({
+      title: "Example",
+      headerLeft: <Icon name="md-menu" size={24} style={{ margin: 20, color: "#ffff" }} onPress={navigation.openDrawer} />,
+      headerStyle: {
+        backgroundColor: '#56CC',
+      },
+      headerTintColor: '#fff',
+    })
+  },
+})
+const teeNavigator = createStackNavigator({
+  Contact: {
+    screen: Contact,
+    navigationOptions: ({ navigation }) => ({
+      title: "Example",
+      headerLeft: <Icon name="md-menu" size={24} style={{ margin: 20, color: "#ffff" }} onPress={navigation.openDrawer} />,
+      headerStyle: {
+        backgroundColor: '#56CC',
+      },
+      headerTintColor: '#fff',
+    })
+  },
+})
 const tebNavigator = createStackNavigator({
   LogIn: {
     screen: Login,
@@ -156,6 +189,12 @@ const drawer = createDrawerNavigator({
   },
   Logout: {
     screen: teabNavigator,
+  },
+  Contact: {
+    screen: teeNavigator,
+  },
+  Mayhello: {
+    screen: treeNavigator,
   }
 })
 
@@ -165,7 +204,7 @@ const switching = createSwitchNavigator({
   },
   LogIn: {
     screen: drawer
-  }
+  },
 })
 const App = createAppContainer(switching);
 
