@@ -12,203 +12,67 @@ import { createSwitchNavigator, createAppContainer } from 'react-navigation';
 import { createDrawerNavigator } from 'react-navigation-drawer';
 import { createStackNavigator, HeaderTitle } from 'react-navigation-stack';
 // import * as Animatable from 'react-native-animatable';
-import * as Animate from 'react-native-animatable';
-import Icon from 'react-native-vector-icons/Ionicons';
 class Home extends React.Component {
   constructor() {
     super();
     this.state = {
-      animationEffect: "",
-      animationEffec: ""
+
     }
   }
   render() {
     return (
       <View>
+        <Text>Hello</Text>
+      </View>
+    )
+  }
+}
 
-        <View style={{ marginTop: 260, flexDirection: "column", justifyContent: "center", alignItems: "center" }}>
-          <TouchableOpacity activeOpacity={0.6} onPress={() => {
-            // console.log("gajjar DArshit");
-            this.setState({
-              animationEffect: "bounceIn"
-            })
-            setTimeout(() => {
-              this.props.navigation.navigate("LogIn")
-            }, 350);
-          }}>
-            <Animate.View animation={this.state.animationEffect} style={{ borderWidth: 1, width: 120, height: 60, justifyContent: "center", alignItems: "center" }}>
-              <Text style={{ fontSize: 20 }}>Login</Text>
-            </Animate.View>
-          </TouchableOpacity>
-          <TouchableOpacity activeOpacity={0.6} onPress={() => {
-            this.setState({
-              animationEffec: "flipInY"
-            })
-            setTimeout(() => {
-              this.props.navigation.navigate("SignUp")
-            }, 620);
-          }}>
-            <Animate.View animation={this.state.animationEffec} style={{ marginTop: 10, borderWidth: 1, width: 120, height: 60, justifyContent: "center", alignItems: "center" }}>
-              <Text style={{ fontSize: 20 }}>Signup</Text>
-            </Animate.View>
-          </TouchableOpacity>
-        </View>
-      </View>
-    )
-  }
-}
-class Login extends React.Component {
+class Darshit extends React.Component {
   render() {
     return (
       <View>
-        <Text style={{ fontSize: 23, marginTop: 290, alignSelf: "center" }} onPress={() => {
-          this.props.navigation.navigate("Home")
-        }}>I am Login</Text>
+        <Text onPress={() => {
+          this.props.navigation.navigate("Navigation")
+        }}>Hello Gajjar</Text>
       </View>
     )
   }
 }
-class SignUp extends React.Component {
+class Navigation extends React.Component {
   render() {
     return (
       <View>
-        <Text style={{ fontSize: 23, marginTop: 290, alignSelf: "center" }} onPress={() => {
-          this.props.navigation.navigate("Home");
-        }}>I am SignUp</Text>
+        <Text>Full stack Developer</Text>
       </View>
     )
   }
 }
-class Contact extends React.Component {
-  render() {
-    return (
-      <View>
-        <Text style={{ fontSize: 23, marginTop: 290, alignSelf: "center" }} onPress={() => {
-          this.props.navigation.navigate("Home");
-        }}>I am Contact</Text>
-      </View>
-    )
-  }
-}
-class Logout extends React.Component {
-  render() {
-    return (
-      <View>
-        <Text style={{ fontSize: 23, marginTop: 290, alignSelf: "center" }} onPress={() => {
-          this.props.navigation.navigate("Home");
-        }}>I am Logout</Text>
-      </View>
-    )
-  }
-}
-const teabNavigator = createStackNavigator({
-  Logout: {
-    screen: Logout,
-    navigationOptions: ({ navigation }) => ({
-      title: "Example",
-      headerLeft: <Icon name="md-menu" size={24} style={{ margin: 20, color: "#ffff" }} onPress={navigation.openDrawer} />,
-      headerStyle: {
-        backgroundColor: '#56CC',
-      },
-      headerTintColor: '#fff',
-    })
-  },
-})
-class Mayhello extends React.Component {
-  render() {
-    return (
-      <View><Text>hhahha</Text></View>
-    )
-  }
-}
-const treeNavigator = createStackNavigator({
-  Mayhello: {
-    screen: Mayhello,
-    navigationOptions: ({ navigation }) => ({
-      title: "Example",
-      headerLeft: <Icon name="md-menu" size={24} style={{ margin: 20, color: "#ffff" }} onPress={navigation.openDrawer} />,
-      headerStyle: {
-        backgroundColor: '#56CC',
-      },
-      headerTintColor: '#fff',
-    })
-  },
-})
-const teeNavigator = createStackNavigator({
-  Contact: {
-    screen: Contact,
-    navigationOptions: ({ navigation }) => ({
-      title: "Example",
-      headerLeft: <Icon name="md-menu" size={24} style={{ margin: 20, color: "#ffff" }} onPress={navigation.openDrawer} />,
-      headerStyle: {
-        backgroundColor: '#56CC',
-      },
-      headerTintColor: '#fff',
-    })
-  },
-})
-const tebNavigator = createStackNavigator({
-  LogIn: {
-    screen: Login,
-    navigationOptions: ({ navigation }) => ({
-      title: "Example",
-      headerLeft: <Icon name="md-menu" size={24} style={{ margin: 20, color: "#ffff" }} onPress={navigation.openDrawer} />,
-      headerStyle: {
-        backgroundColor: '#56CC',
-      },
-      headerTintColor: '#fff',
-    })
-  },
-  SignUp: {
-    screen: SignUp,
-    navigationOptions: ({ navigation }) => ({
-      // title: "Example",
-      // headerLeft: <Icon name="md-menu" size={24} style={{ margin: 20, color: "#ffff" }} onPress={navigation.openDrawer} />,
-      headerStyle: {
-        backgroundColor: '#56CC',
-      },
-      headerTintColor: '#fff',
-    })
-  },
-  contact: {
-    screen: Contact,
-    navigationOptions: ({ navigation }) => ({
-      title: "Example",
-      headerLeft: <Icon name="md-menu" size={24} style={{ margin: 20, color: "#ffff" }} onPress={navigation.openDrawer} />,
-      headerStyle: {
-        backgroundColor: '#56CC',
-      },
-      headerTintColor: '#fff',
-    })
-  }
-})
-
-const drawer = createDrawerNavigator({
-  LogIn: {
-    screen: tebNavigator,
-  },
-  Logout: {
-    screen: teabNavigator,
-  },
-  Contact: {
-    screen: teeNavigator,
-  },
-  Mayhello: {
-    screen: treeNavigator,
-  }
-})
-
-const switching = createSwitchNavigator({
+const Navigati = createStackNavigator({
   Home: {
-    screen: Home
+    screen: Darshit,
+    navigationOptions: {
+      title: "HEllo",
+      headerTintColor: '#ffffff',
+      headerStyle: {
+        backgroundColor: '#2F95D6',
+        borderBottomColor: '#ff00ff',
+        borderBottomWidth: 1,
+      },
+      
+    },
   },
-  LogIn: {
-    screen: drawer
-  },
-})
-const App = createAppContainer(switching);
+  Navigation: {
+    screen: Navigation,
 
-export default App;
+  }
+})
+const SwitchNavigation = createSwitchNavigator({
+  Home: {
+    screen: Navigati
+  }
+})
+export default createAppContainer(Navigati);
 
 const style = StyleSheet.create({
   text: {
